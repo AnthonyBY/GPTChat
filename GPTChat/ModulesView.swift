@@ -9,7 +9,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ModulesView: View {
+    @EnvironmentObject private var model: AppModel
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,8 +23,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ModulesViewPreviews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ModulesView()
     }
 }
