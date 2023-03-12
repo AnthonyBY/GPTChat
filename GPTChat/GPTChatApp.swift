@@ -38,6 +38,7 @@ struct RootView: View {
         .onAppear {
             model.setup()
         }
+        .preferredColorScheme(model.displayModeString == "System" ? .none : (model.displayModeString == "Dark" ? .dark : .light))
 
     }
 }

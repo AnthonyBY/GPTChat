@@ -21,6 +21,8 @@
 		92DB96DF29BE710500AF3FCA /* RelatedTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96DE29BE710500AF3FCA /* RelatedTopicsView.swift */; };
 		92DB96E129BE73BE00AF3FCA /* DefinitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96E029BE73BE00AF3FCA /* DefinitionView.swift */; };
 		92DB96E329BE75F600AF3FCA /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96E229BE75F600AF3FCA /* ArticleView.swift */; };
+		92DB96E629BE7C8900AF3FCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96E529BE7C8900AF3FCA /* Constants.swift */; };
+		92DB96E829BE7CA200AF3FCA /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96E729BE7CA200AF3FCA /* EmailHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		92DB96DE29BE710500AF3FCA /* RelatedTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedTopicsView.swift; sourceTree = "<group>"; };
 		92DB96E029BE73BE00AF3FCA /* DefinitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionView.swift; sourceTree = "<group>"; };
 		92DB96E229BE75F600AF3FCA /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		92DB96E529BE7C8900AF3FCA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		92DB96E729BE7CA200AF3FCA /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 		9212FC1629B0EE2200DD49DD /* GPTChat */ = {
 			isa = PBXGroup;
 			children = (
+				92DB96E429BE7C7100AF3FCA /* Utilities */,
 				92DB96DB29BE6C2900AF3FCA /* ViewComponents */,
 				92CBBE4A29BE5A0700D6F1BB /* Modules */,
 				9212FC1729B0EE2200DD49DD /* GPTChatApp.swift */,
@@ -110,6 +115,15 @@
 				92DB96DC29BE6C3500AF3FCA /* ResultView.swift */,
 			);
 			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		92DB96E429BE7C7100AF3FCA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				92DB96E529BE7C8900AF3FCA /* Constants.swift */,
+				92DB96E729BE7CA200AF3FCA /* EmailHelper.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +206,7 @@
 				92DB96DF29BE710500AF3FCA /* RelatedTopicsView.swift in Sources */,
 				92DB96D829BE656400AF3FCA /* Secrets.swift in Sources */,
 				9212FC1A29B0EE2200DD49DD /* ModulesView.swift in Sources */,
+				92DB96E829BE7CA200AF3FCA /* EmailHelper.swift in Sources */,
 				9212FC1829B0EE2200DD49DD /* GPTChatApp.swift in Sources */,
 				92DB96DA29BE694200AF3FCA /* ConceptView.swift in Sources */,
 				92DB96DD29BE6C3500AF3FCA /* ResultView.swift in Sources */,
@@ -199,6 +214,7 @@
 				9212FC2C29B0F27200DD49DD /* AppModel.swift in Sources */,
 				92DB96E129BE73BE00AF3FCA /* DefinitionView.swift in Sources */,
 				92DB96E329BE75F600AF3FCA /* ArticleView.swift in Sources */,
+				92DB96E629BE7C8900AF3FCA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

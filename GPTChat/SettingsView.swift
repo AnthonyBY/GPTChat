@@ -11,14 +11,28 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var model: AppModel
-    
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
+    let displayOptions = ["Light", "Dark", "System"]
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("General") {
+                    Picker("Display", selection: $model.displayModeString) {
+                        ForEach(displayOptions, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                }
+                Section("Contact") {
+                    Button {
+                        EmailHelper.shared.sendEmail(subject: "ChatGPT - \(AppInfo.versionNumber)", body: "", to: AppInfo.supportEmail)
+                    } label: {
+                        Label("Email Support", systemImage: "tray.full.fill")
+                    }
+                }
+            }
+            .navigationTitle("Settings")
+        }
     }
 }

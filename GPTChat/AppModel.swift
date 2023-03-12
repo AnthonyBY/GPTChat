@@ -12,6 +12,8 @@ import OpenAISwift
 
 final class AppModel: ObservableObject {
 
+    @Published var displayModeString: String = "Dark"
+    
     @Published var isThinking: Bool = false
     @Published var selectedModule: Modules?
 
