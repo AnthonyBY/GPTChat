@@ -13,6 +13,8 @@ struct NewChatView: View {
 
     @EnvironmentObject private var model: AppModel
 
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 32){
@@ -44,9 +46,40 @@ struct NewChatView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                 }
+
+                if model.isThinking {
+                    VStack {
+                        Text("Generating response...")
+                        ProgressView().progressViewStyle(.circular)
+                    }
+                }
+                if model.hasResultNewChatScreen {
+                    Text(model.generatedNewChat)
+                }
             }
-            .navigationTitle("New Chat")
+            .navigationTitle(model.selectedModule?.title ?? "")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack{
+                        Button("Close") {
+                            dismiss()
+                        }
+
+                        if !model.generatedNewChat.isEmpty {
+                            Button("Reset") {
+                                model.newChatEntryText = ""
+                                model.generatedNewChat = ""
+                            }
+                        }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Send") {
+                        model.makeNewChat()
+                    }
+                }
+            }
         }
     }
 }
