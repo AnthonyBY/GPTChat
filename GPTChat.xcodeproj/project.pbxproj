@@ -14,6 +14,7 @@
 		9212FC2629B0EEA300DD49DD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212FC2529B0EEA300DD49DD /* SettingsView.swift */; };
 		9212FC2A29B0F1AD00DD49DD /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9212FC2929B0F1AD00DD49DD /* OpenAISwift */; };
 		9212FC2C29B0F27200DD49DD /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212FC2B29B0F27200DD49DD /* AppModel.swift */; };
+		92CBBE4C29BE5A1700D6F1BB /* NewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9212FC1E29B0EE2300DD49DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9212FC2529B0EEA300DD49DD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9212FC2B29B0F27200DD49DD /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		9212FC1629B0EE2200DD49DD /* GPTChat */ = {
 			isa = PBXGroup;
 			children = (
+				92CBBE4A29BE5A0700D6F1BB /* Modules */,
 				9212FC1729B0EE2200DD49DD /* GPTChatApp.swift */,
 				9212FC2B29B0F27200DD49DD /* AppModel.swift */,
 				9212FC1929B0EE2200DD49DD /* ModulesView.swift */,
@@ -73,6 +76,14 @@
 				9212FC1E29B0EE2300DD49DD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92CBBE4A29BE5A0700D6F1BB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 				9212FC2629B0EEA300DD49DD /* SettingsView.swift in Sources */,
 				9212FC1A29B0EE2200DD49DD /* ModulesView.swift in Sources */,
 				9212FC1829B0EE2200DD49DD /* GPTChatApp.swift in Sources */,
+				92CBBE4C29BE5A1700D6F1BB /* NewChatView.swift in Sources */,
 				9212FC2C29B0F27200DD49DD /* AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

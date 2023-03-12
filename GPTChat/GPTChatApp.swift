@@ -20,6 +20,7 @@ struct GPTChatApp: App {
 
 struct RootView: View {
     @ObservedObject private var model = AppModel()
+    
     var body: some View {
         TabView {
             ModulesView()

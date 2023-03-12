@@ -13,11 +13,12 @@ import OpenAISwift
 final class AppModel: ObservableObject {
 
     @Published var isThinking: Bool = false
+    @Published var selectedModule: Modules?
 
     private var client: OpenAISwift?
 
     func setup() {
-        client = OpenAISwift(authToken: "APP_KEY")
+        client = OpenAISwift(authToken: "API HERE")
     }
 
     func send(text: String, completion: @escaping (String) -> Void) {
@@ -32,5 +33,23 @@ final class AppModel: ObservableObject {
                 completion(output)
             }
         })
+    }
+}
+
+enum Modules: CaseIterable, Identifiable {
+    case newChat
+
+    var id: String { return title }
+
+    var title: String {
+        switch self {
+        case .newChat: return "New Chat"
+        }
+    }
+
+    var sfSymbol: String {
+        switch self {
+        case .newChat: return "text.bubble"
+        }
     }
 }
