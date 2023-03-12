@@ -37,6 +37,12 @@ final class AppModel: ObservableObject {
     var isEmptyDefinitionScreen: Bool { !isThinking && generatedDefinition.isEmpty
     }
     var hasResultDefinitionScreen: Bool { !isThinking && !generatedDefinition.isEmpty }
+
+    @Published var articleEntryText: String = ""
+    @Published var generatedArticle: String = ""
+    var isEmptyArticleScreen: Bool { !isThinking && generatedArticle.isEmpty
+    }
+    var hasResultArticleScreen: Bool { !isThinking && !generatedArticle.isEmpty }
     
     private var client: OpenAISwift?
 
@@ -86,9 +92,18 @@ final class AppModel: ObservableObject {
     }
 
     func makeDefinition() {
-        send(text: "Provide the definition of \(definitionEntryText)") { output in
+        send(text: "Provide the definition of \(definitionEntryText).") { output in
             DispatchQueue.main.async {
                 self.generatedDefinition = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+
+    func makeArticle() {
+        send(text: "Generate an in-depth, grounded in reality, 1-paragraph wikipedia article for a reader who does not understand the topic of \(articleEntryText). Simple provide generated article.") { output in
+            DispatchQueue.main.async {
+                self.generatedArticle = output.trimmingCharacters(in: .whitespacesAndNewlines)
                 self.isThinking = false
             }
         }
@@ -100,6 +115,7 @@ enum Modules: CaseIterable, Identifiable {
     case randomConcept
     case relatedTopics
     case definition
+    case article
 
     var id: String { return title }
 
@@ -109,6 +125,7 @@ enum Modules: CaseIterable, Identifiable {
         case .randomConcept: return "Random Concept"
         case .relatedTopics: return "Related Topics"
         case .definition: return "Definition"
+        case .article: return "Article"
         }
     }
 
@@ -117,7 +134,8 @@ enum Modules: CaseIterable, Identifiable {
         case .newChat: return "text.bubble"
         case .randomConcept: return "lightbulb"
         case .relatedTopics: return "square.stack.3d.up"
-        case .definition: return "exclamatioinmark.circle"
+        case .definition: return "exclamationmark.circle"
+        case .article: return "book"
         }
     }
 }

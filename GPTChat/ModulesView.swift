@@ -36,6 +36,7 @@ struct ModulesView: View {
                 case .randomConcept: ConceptView()
                 case .relatedTopics: RelatedTopicsView()
                 case .definition: DefinitionView()
+                case .article: ArticleView()
                 }
             }
         }
