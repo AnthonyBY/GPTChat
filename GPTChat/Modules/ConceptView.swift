@@ -14,6 +14,7 @@ struct ConceptView: View {
     @EnvironmentObject private var model: AppModel
 
     @Environment(\.dismiss) var dismiss
+    @State private var copyButtonTitle: String = "Copy"
 
     var body: some View {
         NavigationStack {
@@ -33,7 +34,7 @@ struct ConceptView: View {
                     }
                 }
                 if model.hasResultConceptScreen {
-                    Text(model.generatedConcept)
+                    ResultView(generatedText: model.generatedConcept, textSize: 28, showCopyButton: true, copyButtonTitle: $copyButtonTitle)
                 }
             }
             .navigationTitle("Random Concept")
@@ -52,13 +53,14 @@ struct ConceptView: View {
 
                     if !model.generatedConcept.isEmpty {
                         Button("Reset") {
-                            model.generatedConcept = ""
+                            model.generatedConcept = "Copy"
                         }
                     }
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Generate") {
+                    copyButtonTitle = "Copy"
                     model.makeConcept()
                 }.disabled(model.isThinking)
             }

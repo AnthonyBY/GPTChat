@@ -17,6 +17,7 @@
 		92CBBE4C29BE5A1700D6F1BB /* NewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */; };
 		92DB96D829BE656400AF3FCA /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96D729BE656400AF3FCA /* Secrets.swift */; };
 		92DB96DA29BE694200AF3FCA /* ConceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96D929BE694200AF3FCA /* ConceptView.swift */; };
+		92DB96DD29BE6C3500AF3FCA /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96DC29BE6C3500AF3FCA /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatView.swift; sourceTree = "<group>"; };
 		92DB96D729BE656400AF3FCA /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		92DB96D929BE694200AF3FCA /* ConceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptView.swift; sourceTree = "<group>"; };
+		92DB96DC29BE6C3500AF3FCA /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		9212FC1629B0EE2200DD49DD /* GPTChat */ = {
 			isa = PBXGroup;
 			children = (
+				92DB96DB29BE6C2900AF3FCA /* ViewComponents */,
 				92CBBE4A29BE5A0700D6F1BB /* Modules */,
 				9212FC1729B0EE2200DD49DD /* GPTChatApp.swift */,
 				9212FC2B29B0F27200DD49DD /* AppModel.swift */,
@@ -90,6 +93,14 @@
 				92DB96D929BE694200AF3FCA /* ConceptView.swift */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		92DB96DB29BE6C2900AF3FCA /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				92DB96DC29BE6C3500AF3FCA /* ResultView.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 				9212FC1A29B0EE2200DD49DD /* ModulesView.swift in Sources */,
 				9212FC1829B0EE2200DD49DD /* GPTChatApp.swift in Sources */,
 				92DB96DA29BE694200AF3FCA /* ConceptView.swift in Sources */,
+				92DB96DD29BE6C3500AF3FCA /* ResultView.swift in Sources */,
 				92CBBE4C29BE5A1700D6F1BB /* NewChatView.swift in Sources */,
 				9212FC2C29B0F27200DD49DD /* AppModel.swift in Sources */,
 			);

@@ -55,7 +55,7 @@ struct NewChatView: View {
                         }
                     }
                     if model.hasResultNewChatScreen {
-                        Text(model.generatedNewChat)
+                        ResultView(generatedText: model.generatedNewChat)
                     }
                 }
             }
