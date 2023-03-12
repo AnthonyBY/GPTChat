@@ -15,10 +15,16 @@ final class AppModel: ObservableObject {
     @Published var isThinking: Bool = false
     @Published var selectedModule: Modules?
 
+    @Published var newChatEntryText: String = ""
+    @Published var generatedNewChat: String = ""
+    var isEmptyNewChatScreen: Bool { !isThinking && generatedNewChat.isEmpty
+    }
+    var hasResultNewChatScreen: Bool { !isThinking && !generatedNewChat.isEmpty }
+    
     private var client: OpenAISwift?
 
     func setup() {
-        client = OpenAISwift(authToken: "API HERE")
+        client = OpenAISwift(authToken: Secrets.authToken)
     }
 
     func send(text: String, completion: @escaping (String) -> Void) {
@@ -33,6 +39,15 @@ final class AppModel: ObservableObject {
                 completion(output)
             }
         })
+    }
+
+    func makeNewChat() {
+        send(text: "\(newChatEntryText)") { output in
+            DispatchQueue.main.async {
+                self.generatedNewChat = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
     }
 }
 

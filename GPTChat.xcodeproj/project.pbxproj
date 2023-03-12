@@ -15,6 +15,7 @@
 		9212FC2A29B0F1AD00DD49DD /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9212FC2929B0F1AD00DD49DD /* OpenAISwift */; };
 		9212FC2C29B0F27200DD49DD /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212FC2B29B0F27200DD49DD /* AppModel.swift */; };
 		92CBBE4C29BE5A1700D6F1BB /* NewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */; };
+		92DB96D829BE656400AF3FCA /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB96D729BE656400AF3FCA /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9212FC2529B0EEA300DD49DD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9212FC2B29B0F27200DD49DD /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		92CBBE4B29BE5A1700D6F1BB /* NewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatView.swift; sourceTree = "<group>"; };
+		92DB96D729BE656400AF3FCA /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				9212FC2529B0EEA300DD49DD /* SettingsView.swift */,
 				9212FC1B29B0EE2300DD49DD /* Assets.xcassets */,
 				9212FC1D29B0EE2300DD49DD /* Preview Content */,
+				92DB96D729BE656400AF3FCA /* Secrets.swift */,
 			);
 			path = GPTChat;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9212FC2629B0EEA300DD49DD /* SettingsView.swift in Sources */,
+				92DB96D829BE656400AF3FCA /* Secrets.swift in Sources */,
 				9212FC1A29B0EE2200DD49DD /* ModulesView.swift in Sources */,
 				9212FC1829B0EE2200DD49DD /* GPTChatApp.swift in Sources */,
 				92CBBE4C29BE5A1700D6F1BB /* NewChatView.swift in Sources */,
