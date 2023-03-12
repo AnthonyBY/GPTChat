@@ -36,6 +36,7 @@ struct ModulesView: View {
                 }
             }
         }
+        .environmentObject(model)
     }
 }
 
