@@ -34,6 +34,7 @@ struct ModulesView: View {
                 switch screen {
                 case .newChat: NewChatView()
                 case .randomConcept: ConceptView()
+                case .relatedTopics: RelatedTopicsView()
                 }
             }
         }

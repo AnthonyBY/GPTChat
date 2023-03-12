@@ -25,6 +25,12 @@ final class AppModel: ObservableObject {
     var isEmptyConceptScreen: Bool { !isThinking && generatedConcept.isEmpty
     }
     var hasResultConceptScreen: Bool { !isThinking && !generatedConcept.isEmpty }
+
+    @Published var relatedTopicsEntryText: String = ""
+    @Published var generatedRelatedTopics: String = ""
+    var isEmptyRelatedTopicsScreen: Bool { !isThinking && generatedRelatedTopics.isEmpty
+    }
+    var hasResultRelatedTopicsScreen: Bool { !isThinking && !generatedRelatedTopics.isEmpty }
     
     private var client: OpenAISwift?
 
@@ -63,11 +69,21 @@ final class AppModel: ObservableObject {
             }
         }
     }
+
+    func makeRelatedTopics() {
+        send(text: "Generate 5 topics that are closely related to \(self.relatedTopicsEntryText). Simply provide the related topics separated by new line.") { output in
+            DispatchQueue.main.async {
+                self.generatedRelatedTopics = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
 }
 
 enum Modules: CaseIterable, Identifiable {
     case newChat
     case randomConcept
+    case relatedTopics
 
     var id: String { return title }
 
@@ -75,6 +91,7 @@ enum Modules: CaseIterable, Identifiable {
         switch self {
         case .newChat: return "New Chat"
         case .randomConcept: return "Random Concept"
+        case .relatedTopics: return "Related Topics"
         }
     }
 
@@ -82,6 +99,7 @@ enum Modules: CaseIterable, Identifiable {
         switch self {
         case .newChat: return "text.bubble"
         case .randomConcept: return "lightbulb"
+        case .relatedTopics: return "square.stack.3d.up"
         }
     }
 }

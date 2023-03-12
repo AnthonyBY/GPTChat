@@ -1,16 +1,15 @@
 //
 //
-//  NewChatView.swift
+//  RelatedTopicsView.swift
 //
-//  Created by Anthony Marchenko on 3/12/23.
+//  Created by Anthony Marchenko on 3/13/23.
 //
 //  This software is confidential and proprietary information.
 //  
 
 import SwiftUI
 
-struct NewChatView: View {
-
+struct RelatedTopicsView: View {
     @EnvironmentObject private var model: AppModel
 
     @Environment(\.dismiss) var dismiss
@@ -21,14 +20,14 @@ struct NewChatView: View {
                 VStack(spacing: 32){
                     VStack {
                         HStack {
-                            TextField("Required", text: $model.newChatEntryText, axis: .vertical)
+                            TextField("Required", text: $model.relatedTopicsEntryText, axis: .vertical)
                                 .padding(8)
                                 .background(Color(.secondarySystemFill).cornerRadius(10))
                                 .padding(.horizontal, 24)
 
-                            if model.newChatEntryText.isEmpty {
+                            if model.relatedTopicsEntryText.isEmpty {
                                 Button("Paste") {
-                                    model.newChatEntryText = UIPasteboard.general.string ?? ""
+                                    model.relatedTopicsEntryText = UIPasteboard.general.string ?? ""
                                 }
                                 .padding(.trailing, 24)
                             }
@@ -40,8 +39,8 @@ struct NewChatView: View {
                             .padding(.horizontal, 34)
                     }
 
-                    if model.isEmptyNewChatScreen, !model.newChatEntryText.isEmpty {
-                        Text("Tap 'send' in the top right corner of your screen")
+                    if model.isEmptyRelatedTopicsScreen, !model.relatedTopicsEntryText.isEmpty {
+                        Text("Tap 'Generate' in the top right corner of your screen")
                             .font(.system(size: 18))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
@@ -50,12 +49,12 @@ struct NewChatView: View {
 
                     if model.isThinking {
                         VStack {
-                            Text("Generating response...")
+                            Text("Generating related topics...")
                             ProgressView().progressViewStyle(.circular)
                         }
                     }
-                    if model.hasResultNewChatScreen {
-                        ResultView(generatedText: model.generatedNewChat)
+                    if model.hasResultRelatedTopicsScreen {
+                        ResultView(generatedText: model.generatedRelatedTopics)
                     }
                 }
                 .padding(.vertical, 32)
@@ -75,18 +74,18 @@ struct NewChatView: View {
                         dismiss()
                     }
 
-                    if !model.generatedNewChat.isEmpty {
+                    if !model.generatedRelatedTopics.isEmpty {
                         Button("Reset") {
-                            model.newChatEntryText = ""
-                            model.generatedNewChat = ""
+                            model.relatedTopicsEntryText = ""
+                            model.generatedRelatedTopics = ""
                         }
                     }
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Send") {
-                    model.makeNewChat()
-                }.disabled(model.isThinking || model.newChatEntryText.isEmpty)
+                Button("Generate") {
+                    model.makeRelatedTopics()
+                }.disabled(model.isThinking || model.relatedTopicsEntryText.isEmpty )
             }
         }
     }
