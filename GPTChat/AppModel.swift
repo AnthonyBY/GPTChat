@@ -20,6 +20,11 @@ final class AppModel: ObservableObject {
     var isEmptyNewChatScreen: Bool { !isThinking && generatedNewChat.isEmpty
     }
     var hasResultNewChatScreen: Bool { !isThinking && !generatedNewChat.isEmpty }
+
+    @Published var generatedConcept: String = ""
+    var isEmptyConceptScreen: Bool { !isThinking && generatedConcept.isEmpty
+    }
+    var hasResultConceptScreen: Bool { !isThinking && !generatedConcept.isEmpty }
     
     private var client: OpenAISwift?
 
@@ -49,22 +54,34 @@ final class AppModel: ObservableObject {
             }
         }
     }
+
+    func makeConcept() {
+        send(text: "Generate a concept, generally a word or many, in the real of anything, that is grounded in reality, and that may or may not be valuable to learn about. Simple provide the short concept without punctuation") { output in
+            DispatchQueue.main.async {
+                self.generatedConcept = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
 }
 
 enum Modules: CaseIterable, Identifiable {
     case newChat
+    case randomConcept
 
     var id: String { return title }
 
     var title: String {
         switch self {
         case .newChat: return "New Chat"
+        case .randomConcept: return "Random Concept"
         }
     }
 
     var sfSymbol: String {
         switch self {
         case .newChat: return "text.bubble"
+        case .randomConcept: return "lightbulb"
         }
     }
 }

@@ -33,6 +33,7 @@ struct ModulesView: View {
             .sheet(item: $model.selectedModule) { screen in
                 switch screen {
                 case .newChat: NewChatView()
+                case .randomConcept: ConceptView()
                 }
             }
         }
