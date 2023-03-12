@@ -35,6 +35,7 @@ struct ModulesView: View {
                 case .newChat: NewChatView()
                 case .randomConcept: ConceptView()
                 case .relatedTopics: RelatedTopicsView()
+                case .definition: DefinitionView()
                 }
             }
         }

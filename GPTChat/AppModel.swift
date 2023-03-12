@@ -31,6 +31,12 @@ final class AppModel: ObservableObject {
     var isEmptyRelatedTopicsScreen: Bool { !isThinking && generatedRelatedTopics.isEmpty
     }
     var hasResultRelatedTopicsScreen: Bool { !isThinking && !generatedRelatedTopics.isEmpty }
+
+    @Published var definitionEntryText: String = ""
+    @Published var generatedDefinition: String = ""
+    var isEmptyDefinitionScreen: Bool { !isThinking && generatedDefinition.isEmpty
+    }
+    var hasResultDefinitionScreen: Bool { !isThinking && !generatedDefinition.isEmpty }
     
     private var client: OpenAISwift?
 
@@ -71,9 +77,18 @@ final class AppModel: ObservableObject {
     }
 
     func makeRelatedTopics() {
-        send(text: "Generate 5 topics that are closely related to \(self.relatedTopicsEntryText). Simply provide the related topics separated by new line.") { output in
+        send(text: "Generate 5 topics that are closely related to \(relatedTopicsEntryText). Simply provide the related topics separated by new line.") { output in
             DispatchQueue.main.async {
                 self.generatedRelatedTopics = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+
+    func makeDefinition() {
+        send(text: "Provide the definition of \(definitionEntryText)") { output in
+            DispatchQueue.main.async {
+                self.generatedDefinition = output.trimmingCharacters(in: .whitespacesAndNewlines)
                 self.isThinking = false
             }
         }
@@ -84,6 +99,7 @@ enum Modules: CaseIterable, Identifiable {
     case newChat
     case randomConcept
     case relatedTopics
+    case definition
 
     var id: String { return title }
 
@@ -92,6 +108,7 @@ enum Modules: CaseIterable, Identifiable {
         case .newChat: return "New Chat"
         case .randomConcept: return "Random Concept"
         case .relatedTopics: return "Related Topics"
+        case .definition: return "Definition"
         }
     }
 
@@ -100,6 +117,7 @@ enum Modules: CaseIterable, Identifiable {
         case .newChat: return "text.bubble"
         case .randomConcept: return "lightbulb"
         case .relatedTopics: return "square.stack.3d.up"
+        case .definition: return "exclamatioinmark.circle"
         }
     }
 }
